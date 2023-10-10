@@ -21,7 +21,7 @@ def first_word(text: str) -> str:
     # Si la liste 'words' est vide retourner une chaîne vide
     return ""
 
-def split_pairs(text: str) -> Iterable[str]:
+def split_pairs(text: str):
     if len(text) % 2 == 1:
         # If it's odd, add an underscore to make it even
         text += "_"
@@ -66,7 +66,7 @@ def between_markers(text: str, start: str, end: str) -> str:
     return ""
 
 
-def checkio(data: list[int]) -> Iterable[int]:
+def checkio(data: list[int]):
     element_count = {}
     
     non_unique_elements = []
