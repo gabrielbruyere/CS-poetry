@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
-      #       check-out repo and set-up python
+      # check-out repo and set-up python
       #----------------------------------------------
       - name: Check out repository
         uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
           installer-parallel: true
 
       #----------------------------------------------
-      #       load cached venv if cache exists
+      # load cached venv if cache exists
       #----------------------------------------------
       - name: Load cached venv
         id: cached-poetry-dependencies
@@ -52,23 +52,23 @@ jobs:
         run: poetry install --no-interaction
 
       #----------------------------------------------
-      #              run test suite
+      # run test suite with unittest
       #----------------------------------------------
-      - name: Run tests
+      - name: Run tests with unittest
         run: |
           source .venv/bin/activate
-          pytest tests/
+          python -m unittest discover -s tests/ -p "test_*.py"
           coverage report
 
       #----------------------------------------------
-      #       Generate coverage report
+      # Generate coverage report
       #----------------------------------------------
       - name: Generate coverage report
         run: coverage html
         continue-on-error: true
 
       #----------------------------------------------
-      #       Upload coverage report to GitHub
+      # Upload coverage report to GitHub
       #----------------------------------------------
       - name: Upload coverage report
         uses: actions/upload-artifact@v2
@@ -77,6 +77,6 @@ jobs:
           path: htmlcov
 
       #----------------------------------------------
-      #             Upload badge or do other actions
+      # Upload badge or do other actions
       #----------------------------------------------
       # You can add further actions here if needed
