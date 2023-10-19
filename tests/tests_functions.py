@@ -36,6 +36,7 @@ class Test_Functions(unittest.TestCase):
         self.assertEqual(functions.between_markers("What is [apple]", "[", "]"), "apple")
         self.assertEqual(functions.between_markers("What is ><", ">", "<"), "")
         self.assertEqual(functions.between_markers("[an apple]", "[", "]"), "an apple")
+        self.assertEqual(functions.between_markers("No markers here", ">", "<"), "")
 
     def test_checkio(self):
         self.assertEqual(list(functions.checkio([1, 2, 3, 1, 3])), [1, 3, 1, 3])
@@ -46,6 +47,3 @@ class Test_Functions(unittest.TestCase):
     def test_backward_string_by_word(self):
         self.assertEqual(functions.backward_string_by_word("Hello World"), "olleH dlroW")
         self.assertEqual(functions.backward_string_by_word("  Leading spaces"), "  gnidaeL secaps")
-
-if __name__ == '__main__':
-    unittest.main()
