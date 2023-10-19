@@ -57,8 +57,9 @@ jobs:
       - name: Run tests with unittest
         run: |
           source .venv/bin/activate
-          python -m unittest discover -s tests/ -p "tests_*.py"
+          python -m unittest discover -s tests/ -p "tests_functions.py"
           coverage report
+
 
       #----------------------------------------------
       # Generate coverage report
