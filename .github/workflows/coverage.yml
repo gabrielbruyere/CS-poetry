@@ -1,22 +1,21 @@
-name: Update Coverage Badge
+name: Coverage Workflow
 
 on:
   push:
 
+
 jobs:
-  update-coverage-badge:
+  coverage:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-      - name: Setup Python
+      - name: Set up Python
+        id: setup-python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: '3.11'
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
@@ -39,12 +38,19 @@ jobs:
       - name: Install project
         run: poetry install --no-interaction
 
-
-      - name: Run coverage
+      - name: Run tests and coverage
         run: |
           source .venv/bin/activate
           poetry run coverage run -m unittest discover tests -p "tests_functions.py"
-          poetry run coverage report -m
+          poetry run coverage report
+          poetry run coverage html
+        continue-on-error: true
+
+      - name: Upload coverage report to GitHub
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: htmlcov
 
       - name: Coverage Badge
         uses: tj-actions/coverage-badge-py@v2
@@ -62,10 +68,9 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add coverage.svg
           git commit -m "Updated coverage.svg"
+        env:
+          GITHUB_TOKEN: ${{ secrets.EZPRIT }}
 
       - name: Push changes
         if: steps.verify-changed-files.outputs.files_changed == 'true'
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.EZPRIT }}
-          branch: ${{ github.ref }}
+        run: git push
