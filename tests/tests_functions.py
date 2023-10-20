@@ -47,6 +47,3 @@ class Test_Functions(unittest.TestCase):
     def test_backward_string_by_word(self):
         self.assertEqual(functions.backward_string_by_word("Hello World"), "olleH dlroW")
         self.assertEqual(functions.backward_string_by_word("  Leading spaces"), "  gnidaeL secaps")
-        
-if __name__ == "__main__":
-    unittest.main()
