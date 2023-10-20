@@ -71,13 +71,16 @@ jobs:
       #----------------------------------------------
       # Upload coverage report to GitHub
       #----------------------------------------------
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage-report
-          path: htmlcov
+      - name: Generate coverage report
+        run: poetry run coverage html
+        continue-on-error: true
 
       #----------------------------------------------
-      # Upload badge or do other actions
+      # Release
       #----------------------------------------------
-      # You can add further actions here if needed
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: htmlcov/index.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.EZPRIT }}
