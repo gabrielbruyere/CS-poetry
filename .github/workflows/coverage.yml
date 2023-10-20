@@ -47,8 +47,6 @@ jobs:
           
       - name: Coverage Badge
         uses: tj-actions/coverage-badge-py@v2
-        with:
-          filename: coverage.svg
 
       - name: Update README
         run: |
