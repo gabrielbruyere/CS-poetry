@@ -54,18 +54,18 @@ jobs:
       #----------------------------------------------
       # run test suite with unittest
       #----------------------------------------------
-      - name: Run tests with unittest
+      - name: Run tests
         run: |
           source .venv/bin/activate
-          coverage run -m unittest discover -s tests/ -p "tests_*.py"
-          coverage report
+          poetry run coverage run -m unittest -s tests/ -p "tests_*.py"
+          poetry run coverage report
 
 
       #----------------------------------------------
       # Generate coverage report
       #----------------------------------------------
       - name: Generate coverage report
-        run: coverage html
+        run: poetry run coverage html
         continue-on-error: true
 
       #----------------------------------------------
