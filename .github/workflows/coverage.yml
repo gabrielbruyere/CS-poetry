@@ -1,4 +1,4 @@
-name: Coverage Workflow
+name: Coverage and PyLint Workflow
 
 on:
   push:
@@ -45,6 +45,9 @@ jobs:
           poetry run coverage report
           poetry run coverage html
         continue-on-error: true
+
+      - name: Run PyLint
+        run: poetry run pylint tests cs_poetry
 
       - name: Upload coverage report to GitHub
         uses: actions/upload-artifact@v2
