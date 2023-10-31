@@ -6,7 +6,7 @@ authors = ["Gabriel Bruyere"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 coverage = "^6.0"
 sphinx = "^4.0"
 sphinx-rtd-theme = "^1.0"
