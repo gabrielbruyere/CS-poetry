@@ -5,6 +5,7 @@ Author: Bruyère Gabriel
 Date: 20/10/2023
 """
 
+
 def nearest_value(values: set[int], one: int) -> int:
     """
     Find the nearest value in the set 'values' to the integer 'one'.
@@ -17,15 +18,18 @@ def nearest_value(values: set[int], one: int) -> int:
         int: The nearest value from the set to 'one'.
     """
     closest_value = None
-    min_distance = float('inf')
+    min_distance = float("inf")
 
     for value in values:
         distance = abs(value - one)
-        if distance < min_distance or (distance == min_distance and value < closest_value):
+        if distance < min_distance or (
+            distance == min_distance and value < closest_value
+        ):
             closest_value = value
             min_distance = distance
 
     return closest_value
+
 
 def first_word(text: str) -> str:
     """
@@ -42,6 +46,7 @@ def first_word(text: str) -> str:
         return words[0]
     return ""
 
+
 def split_pairs(text: str):
     """
     Split the input text into pairs of characters.
@@ -55,7 +60,8 @@ def split_pairs(text: str):
     if len(text) % 2 == 1:
         text += "_"
     for i in range(0, len(text), 2):
-        yield text[i:i+2]
+        yield text[i : i + 2]
+
 
 def correct_sentence(text: str) -> str:
     """
@@ -69,9 +75,10 @@ def correct_sentence(text: str) -> str:
     """
     if not text[0].isupper():
         text = text[0].upper() + text[1:]
-    if not text.endswith('.'):
-        text += '.'
+    if not text.endswith("."):
+        text += "."
     return text
+
 
 def beginning_zeros(a: str) -> int:
     """
@@ -85,11 +92,12 @@ def beginning_zeros(a: str) -> int:
     """
     count = 0
     for digit in a:
-        if digit == '0':
+        if digit == "0":
             count += 1
         else:
             break
     return count
+
 
 def between_markers(text: str, start: str, end: str) -> str:
     """
@@ -106,8 +114,9 @@ def between_markers(text: str, start: str, end: str) -> str:
     start_index = text.find(start)
     end_index = text.rfind(end)
     if start_index != -1 and end_index != -1:
-        return text[start_index + 1:end_index]
+        return text[start_index + 1 : end_index]
     return ""
+
 
 def checkio(data: list[int]):
     """
@@ -131,6 +140,7 @@ def checkio(data: list[int]):
             non_unique_elements.append(element)
     return non_unique_elements
 
+
 def backward_string_by_word(text: str) -> str:
     """
     Reverse words in the input text while keeping the word order.
@@ -141,7 +151,7 @@ def backward_string_by_word(text: str) -> str:
     Returns:
         str: The reversed text.
     """
-    words = text.split(' ')
+    words = text.split(" ")
     reversed_words = [word[::-1] for word in words]
-    reversed_text = ' '.join(reversed_words)
+    reversed_text = " ".join(reversed_words)
     return reversed_text

@@ -2,12 +2,13 @@
 Module: tests.tests_functions
 This module contains unit tests for the functions in the cs_poetry.functions module.
 
-Author: [Your Name]
-Date: [Date]
+Author: Bruyère Gabriel
+Date: 24/10/2023
 """
 
 import unittest
 from cs_poetry import functions
+
 
 class TestFunctions(unittest.TestCase):
     """
@@ -44,9 +45,15 @@ class TestFunctions(unittest.TestCase):
         Test correct_sentence function.
         """
         self.assertEqual(functions.correct_sentence("hello"), "Hello.")
-        self.assertEqual(functions.correct_sentence("greetings, friends"), "Greetings, friends.")
-        self.assertEqual(functions.correct_sentence("greetings, friends."), "Greetings, friends.")
-        self.assertEqual(functions.correct_sentence("Greetings, friends"), "Greetings, friends.")
+        self.assertEqual(
+            functions.correct_sentence("greetings, friends"), "Greetings, friends."
+        )
+        self.assertEqual(
+            functions.correct_sentence("greetings, friends."), "Greetings, friends."
+        )
+        self.assertEqual(
+            functions.correct_sentence("Greetings, friends"), "Greetings, friends."
+        )
 
     def test_beginning_zeros(self):
         """
@@ -61,8 +68,12 @@ class TestFunctions(unittest.TestCase):
         """
         Test between_markers function.
         """
-        self.assertEqual(functions.between_markers("What is >apple<", ">", "<"), "apple")
-        self.assertEqual(functions.between_markers("What is [apple]", "[", "]"), "apple")
+        self.assertEqual(
+            functions.between_markers("What is >apple<", ">", "<"), "apple"
+        )
+        self.assertEqual(
+            functions.between_markers("What is [apple]", "[", "]"), "apple"
+        )
         self.assertEqual(functions.between_markers("What is ><", ">", "<"), "")
         self.assertEqual(functions.between_markers("[an apple]", "[", "]"), "an apple")
         self.assertEqual(functions.between_markers("No markers here", ">", "<"), "")
@@ -74,11 +85,17 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(list(functions.checkio([1, 2, 3, 1, 3])), [1, 3, 1, 3])
         self.assertEqual(list(functions.checkio([1, 2, 3, 4, 5])), [])
         self.assertEqual(list(functions.checkio([5, 5, 5, 5, 5])), [5, 5, 5, 5, 5])
-        self.assertEqual(list(functions.checkio([10, 9, 10, 10, 9, 8])), [10, 9, 10, 10, 9])
+        self.assertEqual(
+            list(functions.checkio([10, 9, 10, 10, 9, 8])), [10, 9, 10, 10, 9]
+        )
 
     def test_backward_string_by_word(self):
         """
         Test backward_string_by_word function.
         """
-        self.assertEqual(functions.backward_string_by_word("Hello World"), "olleH dlroW")
-        self.assertEqual(functions.backward_string_by_word("  Leading spaces"), "  gnidaeL secaps")
+        self.assertEqual(
+            functions.backward_string_by_word("Hello World"), "olleH dlroW"
+        )
+        self.assertEqual(
+            functions.backward_string_by_word("  Leading spaces"), "  gnidaeL secaps"
+        )
