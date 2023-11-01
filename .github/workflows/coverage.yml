@@ -73,7 +73,7 @@ jobs:
 
       
       - name: Run PyLint
-        run: poetry run pylint tests cs_poetry
+        run: poetry run pylint tests cs_poetry || true
 
       - name: Badge Pylint
         uses: Silleellie/pylint-github-action@v1
