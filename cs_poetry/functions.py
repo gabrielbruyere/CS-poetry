@@ -8,7 +8,7 @@ Date: 20/10/2023
 
 def nearest_value(values: set[int], one: int) -> int:
     """
-    Find the nearest value in the set 'values' to the integer 'one'.
+    Find nearest value in the set 'values' to the integer 'one'.
 
     Args:
         values (set[int]): A set of integers.
@@ -18,6 +18,8 @@ def nearest_value(values: set[int], one: int) -> int:
         int: The nearest value from the set to 'one'.
     """
     closest_value = None
+
+
     min_distance = float("inf")
 
     for value in values:
@@ -43,6 +45,7 @@ def first_word(text: str) -> str:
     """
     words = text.split()
     if words:
+        
         return words[0]
     return ""
 
