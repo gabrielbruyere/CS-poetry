@@ -49,6 +49,14 @@ jobs:
       - name: Run PyLint
         run: poetry run pylint tests cs_poetry
 
+      - name: Badge Pylint
+        uses: Silleellie/pylint-github-action@v1
+        with:
+          package-path: |
+            cs_poetry
+            tests
+          python-version: 3.11
+
       - name: Upload coverage report to GitHub
         uses: actions/upload-artifact@v2
         with:
