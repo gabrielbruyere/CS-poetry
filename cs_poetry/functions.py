@@ -58,7 +58,6 @@ def split_pairs(text: str):
         str: Pairs of characters from the input text.
     """
     if len(text) % 2 == 1:
-        
         text += "_"
     for i in range(0, len(text), 2):
         yield text[i : i + 2]
