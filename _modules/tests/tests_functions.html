@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tests.tests_functions &mdash; Functions Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Functions Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">CSpoetry</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Functions Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">tests.tests_functions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for tests.tests_functions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module: tests.tests_functions</span>
+<span class="sd">This module contains unit tests for the functions in the cs_poetry.functions module.</span>
+
+<span class="sd">Author: Bruyère Gabriel</span>
+<span class="sd">Date: 24/10/2023</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">cs_poetry</span> <span class="kn">import</span> <span class="n">functions</span>
+
+
+<div class="viewcode-block" id="TestFunctions"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions">[docs]</a><span class="k">class</span> <span class="nc">TestFunctions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test cases for the functions in the cs_poetry.functions module.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TestFunctions.test_nearest_value"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_nearest_value">[docs]</a>    <span class="k">def</span> <span class="nf">test_nearest_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test nearest_value function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">nearest_value</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">nearest_value</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">nearest_value</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFunctions.test_first_word"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_first_word">[docs]</a>    <span class="k">def</span> <span class="nf">test_first_word</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test first_word function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">first_word</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">),</span> <span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">first_word</span><span class="p">(</span><span class="s2">&quot;   Leading spaces&quot;</span><span class="p">),</span> <span class="s2">&quot;Leading&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">first_word</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFunctions.test_split_pairs"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_split_pairs">[docs]</a>    <span class="k">def</span> <span class="nf">test_split_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test split_pairs function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">split_pairs</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)),</span> <span class="p">[</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cd&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">split_pairs</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)),</span> <span class="p">[</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;c_&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">split_pairs</span><span class="p">(</span><span class="s2">&quot;abcdf&quot;</span><span class="p">)),</span> <span class="p">[</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cd&quot;</span><span class="p">,</span> <span class="s2">&quot;f_&quot;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TestFunctions.test_correct_sentence"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_correct_sentence">[docs]</a>    <span class="k">def</span> <span class="nf">test_correct_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test correct_sentence function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">correct_sentence</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">),</span> <span class="s2">&quot;Hello.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">functions</span><span class="o">.</span><span class="n">correct_sentence</span><span class="p">(</span><span class="s2">&quot;greetings, friends&quot;</span><span class="p">),</span> <span class="s2">&quot;Greetings, friends.&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">functions</span><span class="o">.</span><span class="n">correct_sentence</span><span class="p">(</span><span class="s2">&quot;greetings, friends.&quot;</span><span class="p">),</span> <span class="s2">&quot;Greetings, friends.&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">functions</span><span class="o">.</span><span class="n">correct_sentence</span><span class="p">(</span><span class="s2">&quot;Greetings, friends&quot;</span><span class="p">),</span> <span class="s2">&quot;Greetings, friends.&quot;</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFunctions.test_beginning_zeros"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_beginning_zeros">[docs]</a>    <span class="k">def</span> <span class="nf">test_beginning_zeros</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test beginning_zeros function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">beginning_zeros</span><span class="p">(</span><span class="s2">&quot;100&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">beginning_zeros</span><span class="p">(</span><span class="s2">&quot;001&quot;</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">beginning_zeros</span><span class="p">(</span><span class="s2">&quot;100100&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">beginning_zeros</span><span class="p">(</span><span class="s2">&quot;001001&quot;</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFunctions.test_between_markers"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_between_markers">[docs]</a>    <span class="k">def</span> <span class="nf">test_between_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test between_markers function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">functions</span><span class="o">.</span><span class="n">between_markers</span><span class="p">(</span><span class="s2">&quot;What is &gt;apple&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">),</span> <span class="s2">&quot;apple&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">functions</span><span class="o">.</span><span class="n">between_markers</span><span class="p">(</span><span class="s2">&quot;What is [apple]&quot;</span><span class="p">,</span> <span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="s2">&quot;]&quot;</span><span class="p">),</span> <span class="s2">&quot;apple&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">between_markers</span><span class="p">(</span><span class="s2">&quot;What is &gt;&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">between_markers</span><span class="p">(</span><span class="s2">&quot;[an apple]&quot;</span><span class="p">,</span> <span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="s2">&quot;]&quot;</span><span class="p">),</span> <span class="s2">&quot;an apple&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">between_markers</span><span class="p">(</span><span class="s2">&quot;No markers here&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFunctions.test_checkio"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_checkio">[docs]</a>    <span class="k">def</span> <span class="nf">test_checkio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test checkio function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">checkio</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">checkio</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])),</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">checkio</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])),</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">checkio</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">])),</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFunctions.test_backward_string_by_word"><a class="viewcode-back" href="../../tests.html#tests.tests_functions.TestFunctions.test_backward_string_by_word">[docs]</a>    <span class="k">def</span> <span class="nf">test_backward_string_by_word</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test backward_string_by_word function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">functions</span><span class="o">.</span><span class="n">backward_string_by_word</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">),</span> <span class="s2">&quot;olleH dlroW&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="n">functions</span><span class="o">.</span><span class="n">backward_string_by_word</span><span class="p">(</span><span class="s2">&quot;  Leading spaces&quot;</span><span class="p">),</span> <span class="s2">&quot;  gnidaeL secaps&quot;</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Gabriel B.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
