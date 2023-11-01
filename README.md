@@ -4,4 +4,4 @@
 
 ## Pylint Status
 
-![pylint](https://img.shields.io/badge/pylint-9.89-yellow?logo=python&logoColor=white)
+![pylint](https://img.shields.io/badge/pylint-10.00-brightgreen?logo=python&logoColor=white)
