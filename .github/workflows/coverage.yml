@@ -46,18 +46,6 @@ jobs:
           poetry run coverage html
         continue-on-error: true
 
-      - name: Run PyLint
-        run: poetry run pylint tests cs_poetry
-
-      - name: Badge Pylint
-        uses: Silleellie/pylint-github-action@v1
-        with:
-          package-path: |
-            cs_poetry
-            tests
-          python-version: 3.11
-          requirements-path: requirements/requirements.txt
-
       - name: Upload coverage report to GitHub
         uses: actions/upload-artifact@v2
         with:
@@ -82,6 +70,19 @@ jobs:
           git commit -m "Updated coverage.svg"
         env:
           GITHUB_TOKEN: ${{ secrets.EZPRIT }}
+
+      
+      - name: Run PyLint
+        run: poetry run pylint tests cs_poetry
+
+      - name: Badge Pylint
+        uses: Silleellie/pylint-github-action@v1
+        with:
+          package-path: |
+            cs_poetry
+            tests
+          python-version: 3.11
+          requirements-path: requirements/requirements.txt
 
       - name: Push changes
         if: steps.verify-changed-files.outputs.files_changed == 'true'
