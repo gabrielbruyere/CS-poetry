@@ -78,7 +78,7 @@
 
 <div class="viewcode-block" id="nearest_value"><a class="viewcode-back" href="../../cs_poetry.html#cs_poetry.functions.nearest_value">[docs]</a><span class="k">def</span> <span class="nf">nearest_value</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">one</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Find the nearest value in the set &#39;values&#39; to the integer &#39;one&#39;.</span>
+<span class="sd">    Find nearest value in the set &#39;values&#39; to the integer &#39;one&#39;.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        values (set[int]): A set of integers.</span>
@@ -88,6 +88,8 @@
 <span class="sd">        int: The nearest value from the set to &#39;one&#39;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">closest_value</span> <span class="o">=</span> <span class="kc">None</span>
+
+
     <span class="n">min_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
@@ -113,6 +115,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">words</span><span class="p">:</span>
+        
         <span class="k">return</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
 
